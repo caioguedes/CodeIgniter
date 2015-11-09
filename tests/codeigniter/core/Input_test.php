@@ -272,4 +272,13 @@ class Input_test extends CI_TestCase {
 		$_SERVER['HTTP_USER_AGENT'] = 'test';
 		$this->assertEquals('test', $this->input->user_agent());
 	}
+
+    public function test_set_post()
+    {
+        $this->input->set_post('name', 'codeigniter');
+        $this->input->set_post('empty');
+
+        $this->assertEquals('codeigniter', $this->input->post('name'));
+        $this->assertEquals('', $this->input->post('empty'));
+    }
 }
